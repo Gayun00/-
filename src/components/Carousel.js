@@ -28,6 +28,7 @@ function Carousel() {
     number: START,
     withMotion: true,
   });
+
   useEffect(() => {
     function setInitialPos() {
       slideRef.current.style.transform = `translateX(-${
@@ -42,7 +43,6 @@ function Carousel() {
   }, [banners])
 
   useEffect(() => {
-    console.log(slide.number);
     slideRef.current.style.transform = `translateX(-${
       SLIDE_WIDTH * (slide.number - 1)
     }px)`;
@@ -135,28 +135,27 @@ function Carousel() {
 }
 
 const Wrapper = styled.div`
-
-  background-color: pink;
+  display: flex;
+  justify-content: center;
 `;
 
 const Container = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* background-color: skyblue; */
+  overflow: hidden;
 `;
 
 const List = styled.div`
   display: flex;
-  /* height: 10vw; */
-  background-color: oldlace;
+  margin-left: 1.5rem;
+  @media (max-width: 1000px) {
+    width: 100vw;
+  }
 `;
 
 const Item = styled.span`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: oldlace;
 
   @media (min-width: 1000px) {
     width: 1000px;
@@ -166,9 +165,9 @@ const Item = styled.span`
 const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
-  background-color: oldlace;
 
   & > img {
+    border-radius: 0.3rem;
   }
 `;
 
@@ -176,6 +175,7 @@ const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   @media (min-width: 1000px) {
     position: absolute;
     display: flex;
@@ -206,7 +206,8 @@ const ButtonWrapper = styled.div`
   position: absolute;
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  /* padding: 0 1.5rem 0 1.5rem; */
+  width: 98%;
   opacity: 0.7;
   transform: translateY(120%);
   @media (max-width: 1000px) {

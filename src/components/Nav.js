@@ -7,6 +7,7 @@ import { BsThreeDots } from 'react-icons/bs';
 function Nav() {
   return (
     <Wrapper>
+      <Container>
       <LogoWrapperRes>
         <LogoWrapper>
           <FiMenu />
@@ -39,6 +40,7 @@ function Nav() {
         <p>회원가입 로그인</p>
       </SignUpWrapper>
       <EnterpriseWrapper>기업 서비스</EnterpriseWrapper>
+      </Container>
     </Wrapper>
   );
 }
@@ -46,11 +48,19 @@ function Nav() {
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+
+
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  max-width: 1500px;
+  width: 60rem;
   @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
+    width: 100vw;
   }
 `;
 
