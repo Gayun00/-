@@ -45,8 +45,9 @@ function Nav() {
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  max-width: 1500px;
   @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
@@ -55,6 +56,7 @@ const Wrapper = styled.div`
 
 const LogoWrapper = styled.span`
   display: flex;
+  justify-content: space-between;
   align-items: center;
 `;
 
@@ -118,6 +120,7 @@ const MenuWrapperRes = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding: 0.9rem;
   }
 `;
 
@@ -128,6 +131,9 @@ const MenuRes = styled.span`
 `;
 
 const SearchButtonWrapperRes = styled.span`
+  & > svg {
+    padding: 0 0.5rem 0 0.2rem;
+  }
   @media (min-width: 1000px) {
     display: none;
   }

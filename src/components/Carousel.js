@@ -18,19 +18,31 @@ function Carousel() {
   const SLIDE_WIDTH = 1000;
   const slideRef = useRef();
 
-  const BANNERS_COUNT = banners.length;
+  const BANNERS_COUNT = banners.length / 3;
   const TOTAL_BANNERS_COUNT = BANNERS_COUNT * 3;
   const START = (TOTAL_BANNERS_COUNT * 1) / 3 + 1;
   const END = (TOTAL_BANNERS_COUNT * 2) / 3;
   const PREV_END = (TOTAL_BANNERS_COUNT * 1) / 3;
   const NEXT_START = (TOTAL_BANNERS_COUNT * 2) / 3 + 1;
-
   const [slide, setSlide] = useState({
     number: START,
     withMotion: true,
   });
+  useEffect(() => {
+    function setInitialPos() {
+      slideRef.current.style.transform = `translateX(-${
+        SLIDE_WIDTH * (START - 1)
+      }px)`;
+      setSlide({
+        number: START,
+        withMotion: false,
+      })
+    }
+    setInitialPos();
+  }, [banners])
 
   useEffect(() => {
+    console.log(slide.number);
     slideRef.current.style.transform = `translateX(-${
       SLIDE_WIDTH * (slide.number - 1)
     }px)`;
@@ -124,44 +136,39 @@ function Carousel() {
 
 const Wrapper = styled.div`
 
-  /* background-color: pink; */
+  background-color: pink;
 `;
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
-  /* width: 100vw; */
-  /* height: 10vw; */
-
+  /* flex-direction: column; */
+  /* align-items: center; */
   /* background-color: skyblue; */
 `;
 
 const List = styled.div`
   display: flex;
   /* height: 10vw; */
-  /* background-color: oldlace; */
+  background-color: oldlace;
 `;
 
 const Item = styled.span`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: oldlace;
+
   @media (min-width: 1000px) {
     width: 1000px;
   }
-  /* margin: 0 2rem 0 2rem; */
-  /* padding: 0 1rem 0 1rem; */
-  /* width: 70vw; */
 `;
 
 const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
-  /* width: 100%; */
+  background-color: oldlace;
+
   & > img {
-    /* width: 100%; */
   }
 `;
 
