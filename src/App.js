@@ -1,10 +1,12 @@
+import Carousel from "./components/Carousel";
+import Nav from "./components/Nav";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
+    <>
+      <Nav />
+      <Carousel />
+    </>
   );
 }
 
