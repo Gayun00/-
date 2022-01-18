@@ -4,6 +4,7 @@ import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 function Carousel() {
   const [banners, setBanners] = useState([]);
+
   async function fetchBannersData() {
     const response = await fetch('/data/banners.json');
     const data = await response.json();
@@ -101,6 +102,7 @@ function Carousel() {
       });
     }
   }
+
   return (
     <Wrapper>
       <Container>
@@ -111,8 +113,8 @@ function Carousel() {
              <img src={carousel.img} alt={carousel.title} />
            </ImgContainer>
            <TextWrapper>
-            <p>{carousel.title}</p>
-            <p>{carousel.subTitle}</p>
+            <Title>{carousel.title}</Title>
+            <Subtitle>{carousel.subTitle}</Subtitle>
             <ItemButton>
               <p>바로가기</p>
               <IoIosArrowForward />
@@ -141,12 +143,13 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   display: flex;
+  width: 1000px;
   overflow: hidden;
 `;
 
 const List = styled.div`
   display: flex;
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
   @media (max-width: 1000px) {
     width: 100vw;
   }
@@ -181,17 +184,31 @@ const TextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transform: translate(-22rem,5rem);
+    transform: translate(-22rem,6rem);
     padding: 1rem;
     background-color: white;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
+`;
+
+const Title = styled.p`
+  margin: 0;
+  padding: 0.5rem 1.5rem 0 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+`;
+
+const Subtitle = styled.p`
+  margin: 0;
+  padding: 1rem 0 1rem 0;
+  font-size: 0.8rem;
 `;
 
 const ItemButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 0.5rem;
   width: 95%;
   background-color: transparent;
   border: none;
@@ -207,7 +224,7 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   /* padding: 0 1.5rem 0 1.5rem; */
-  width: 98%;
+  width: 1000px;
   opacity: 0.7;
   transform: translateY(120%);
   @media (max-width: 1000px) {

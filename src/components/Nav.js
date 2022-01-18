@@ -48,8 +48,9 @@ function Nav() {
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-
-
+  margin-bottom: 1rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid lightgray;
 `;
 
 const Container = styled.div`
@@ -68,10 +69,15 @@ const LogoWrapper = styled.span`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & > svg {
+    margin-right: 0.5rem;
+    padding-bottom: 0.3rem;
+  }
 `;
 
 const Logo = styled.span`
-//
+  font-weight: 700;
 `;
 
 const MenuWrapper = styled.span`
