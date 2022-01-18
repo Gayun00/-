@@ -18,5 +18,5 @@
 
 <br>
 
-## 배포 링크
-[netflify 배포 링크](silly-heyrovsky-8b2232.netlify.app)
+## 배포 링크 (Netflify)
+https://silly-heyrovsky-8b2232.netlify.app/
